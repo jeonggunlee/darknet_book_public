@@ -1,3 +1,9 @@
+확인을 하면서 작업을 진행하시길 원한다면 빌드를 해주세요
+
+```
+gitbook build
+```
+
 # DarkNet BOOK
 
 - 본 문서는 [DarkNet](https://github.com/pjreddie/darknet) 프로젝트 분석 문서입니다.
