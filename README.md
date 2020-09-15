@@ -44,7 +44,7 @@ C 언어로 작성된 Deep Learning Open Source
 
 - GPU 코드는 빼고 봅니다.
 
-- DarkNet Book Public GitHub : [https://github.com/jjeamin/darknet_book_main](https://github.com/jjeamin/darknet_book_main)
+- DarkNet Book Public GitHub : [https://github.com/jjeamin/darknet_book_public](https://github.com/jjeamin/darknet_book_public)
 
 - 기여 많이 해주세요 ㅠㅠ
 
