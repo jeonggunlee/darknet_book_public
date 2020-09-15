@@ -1,0 +1,24 @@
+{
+    "title": "DarkNet Book",
+    "author": "JJM",
+    "output.name": "site",
+    "root": "./",
+    "plugins": [ "advanced-emoji", "theme-gestalt", "-theme-default", "styles-sass-fix", "theme-api", "mathjax", "ga" ],
+    "pluginsConfig": {
+        "theme-gestalt": {
+            "logo": "/darknet_book/assets/darknet.png",
+            "baseUrl": null,
+            "excludeDefaultStyles": true,
+            "doNotHideChildrenChapters" : false
+        },
+        "ga": {
+            "token": "UA-136921229-1"
+        }
+    },
+    "variables": {
+        "BASE_URL": "https://jjeamin.github.io"
+    },
+    "styles": {
+        "website": "./styles/website.scss"
+    }
+}
