@@ -1,3 +1,5 @@
+`DarkNet Book Public GitHub` : [https://github.com/jjeamin/darknet_book_public](https://github.com/jjeamin/darknet_book_public)
+
 확인을 하면서 작업을 진행하시길 원한다면 빌드를 해주세요
 
 ```
