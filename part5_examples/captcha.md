@@ -2,7 +2,11 @@
 
 ```c
 #include "darknet.h"
+```
 
+## fix_data_captcha
+
+```c
 void fix_data_captcha(data d, int mask)
 {
     matrix labels = d.y;
@@ -26,7 +30,11 @@ void fix_data_captcha(data d, int mask)
         }
     }
 }
+```
 
+## train_captcha
+
+```c
 void train_captcha(char *cfgfile, char *weightfile)
 {
     srand(time(0));
@@ -92,7 +100,11 @@ void train_captcha(char *cfgfile, char *weightfile)
         }
     }
 }
+```
 
+## test_captcha
+
+```c
 void test_captcha(char *cfgfile, char *weightfile, char *filename)
 {
     network *net = load_network(cfgfile, weightfile, 0);
@@ -129,7 +141,11 @@ void test_captcha(char *cfgfile, char *weightfile, char *filename)
         if (filename) break;
     }
 }
+```
 
+## valid_captcha
+
+```c
 void valid_captcha(char *cfgfile, char *weightfile, char *filename)
 {
     char **labels = get_labels("/data/captcha/reimgs.labels.list");
@@ -167,7 +183,11 @@ void valid_captcha(char *cfgfile, char *weightfile, char *filename)
         if (filename) break;
     }
 }
+```
 
+## run_captcha
+
+```c
 void run_captcha(int argc, char **argv)
 {
     if(argc < 4){

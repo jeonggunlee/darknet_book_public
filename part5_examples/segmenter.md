@@ -4,7 +4,11 @@
 #include "darknet.h"
 #include <sys/time.h>
 #include <assert.h>
+```
 
+## train_segmenter
+
+```c
 void train_segmenter(char *datacfg, char *cfgfile, char *weightfile, int *gpus, int ngpus, int clear, int display)
 {
     int i;
@@ -130,7 +134,11 @@ void train_segmenter(char *datacfg, char *cfgfile, char *weightfile, int *gpus, 
     free_list(plist);
     free(base);
 }
+```
 
+## predict_segmenter
+
+```c
 void predict_segmenter(char *datafile, char *cfg, char *weights, char *filename)
 {
     network *net = load_network(cfg, weights, 0);
@@ -168,8 +176,11 @@ void predict_segmenter(char *datafile, char *cfg, char *weights, char *filename)
         if (filename) break;
     }
 }
+```
 
+## demo_segmenter
 
+```c
 void demo_segmenter(char *datacfg, char *cfg, char *weights, int cam_index, const char *filename)
 {
 #ifdef OPENCV
@@ -211,8 +222,11 @@ void demo_segmenter(char *datacfg, char *cfg, char *weights, int cam_index, cons
     }
 #endif
 }
+```
 
+## run_segmenter
 
+```c
 void run_segmenter(int argc, char **argv)
 {
     if(argc < 4){

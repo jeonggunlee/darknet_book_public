@@ -2,7 +2,11 @@
 
 ```c
 #include "darknet.h"
+```
 
+## train_cifar
+
+```c
 void train_cifar(char *cfgfile, char *weightfile)
 {
     srand(time(0));
@@ -47,7 +51,11 @@ void train_cifar(char *cfgfile, char *weightfile)
     free(base);
     free_data(train);
 }
+```
 
+## train_cifar_distill
+
+```c
 void train_cifar_distill(char *cfgfile, char *weightfile)
 {
     srand(time(0));
@@ -100,7 +108,11 @@ void train_cifar_distill(char *cfgfile, char *weightfile)
     free(base);
     free_data(train);
 }
+```
 
+## test_cifar_multi
+
+```c
 void test_cifar_multi(char *filename, char *weightfile)
 {
     network *net = load_network(filename, weightfile, 0);
@@ -129,7 +141,11 @@ void test_cifar_multi(char *filename, char *weightfile)
         printf("%4d: %.2f%%\n", i, 100.*avg_acc/(i+1));
     }
 }
+```
 
+## test_cifar
+
+```c
 void test_cifar(char *filename, char *weightfile)
 {
     network *net = load_network(filename, weightfile, 0);
@@ -148,7 +164,11 @@ void test_cifar(char *filename, char *weightfile)
     printf("top1: %f, %lf seconds, %d images\n", avg_acc, sec(clock()-time), test.X.rows);
     free_data(test);
 }
+```
 
+## extract_cifar
+
+```c
 void extract_cifar()
 {
 char *labels[] = {"airplane","automobile","bird","cat","deer","dog","frog","horse","ship","truck"};
@@ -170,7 +190,11 @@ char *labels[] = {"airplane","automobile","bird","cat","deer","dog","frog","hors
         save_image_options(im, buff, PNG, 0);
     }
 }
+```
 
+## test_cifar_csv
+
+```c
 void test_cifar_csv(char *filename, char *weightfile)
 {
     network *net = load_network(filename, weightfile, 0);
@@ -194,7 +218,11 @@ void test_cifar_csv(char *filename, char *weightfile)
     fprintf(stderr, "Accuracy: %f\n", matrix_topk_accuracy(test.y, pred, 1));
     free_data(test);
 }
+```
 
+## test_cifar_csvtrain
+
+```c
 void test_cifar_csvtrain(char *cfg, char *weights)
 {
     network *net = load_network(cfg, weights, 0);
@@ -218,7 +246,11 @@ void test_cifar_csvtrain(char *cfg, char *weights)
     fprintf(stderr, "Accuracy: %f\n", matrix_topk_accuracy(test.y, pred, 1));
     free_data(test);
 }
+```
 
+## eval_cifar_csv
+
+```c
 void eval_cifar_csv()
 {
     data test = load_cifar10_data("data/cifar/cifar-10-batches-bin/test_batch.bin");
@@ -230,8 +262,11 @@ void eval_cifar_csv()
     free_data(test);
     free_matrix(pred);
 }
+```
 
+## run_cifar
 
+```c
 void run_cifar(int argc, char **argv)
 {
     if(argc < 4){

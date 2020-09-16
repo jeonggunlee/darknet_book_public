@@ -2,7 +2,11 @@
 
 ```c
 #include "darknet.h"
+```
 
+## train_writing
+
+```c
 void train_writing(char *cfgfile, char *weightfile)
 {
     char *backup_directory = "/home/pjreddie/backup/";
@@ -81,7 +85,11 @@ void train_writing(char *cfgfile, char *weightfile)
         }
     }
 }
+```
 
+## test_writing
+
+```c
 void test_writing(char *cfgfile, char *weightfile, char *filename)
 {
     network net = parse_network_cfg(cfgfile);
@@ -130,7 +138,11 @@ void test_writing(char *cfgfile, char *weightfile, char *filename)
         if (filename) break;
     }
 }
+```
 
+## run_writing
+
+```c
 void run_writing(int argc, char **argv)
 {
     if(argc < 4){

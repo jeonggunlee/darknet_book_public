@@ -2,7 +2,11 @@
 
 ```c
 #include "darknet.h"
+```
 
+## train_tag
+
+```c
 void train_tag(char *cfgfile, char *weightfile, int clear)
 {
     srand(time(0));
@@ -82,7 +86,11 @@ void train_tag(char *cfgfile, char *weightfile, int clear)
     free_list(plist);
     free(base);
 }
+```
 
+## test_tag
+
+```c
 void test_tag(char *cfgfile, char *weightfile, char *filename)
 {
     network *net = load_network(cfgfile, weightfile, 0);
@@ -124,8 +132,11 @@ void test_tag(char *cfgfile, char *weightfile, char *filename)
         if (filename) break;
     }
 }
+```
 
+## run_tag
 
+```c
 void run_tag(int argc, char **argv)
 {
     if(argc < 4){

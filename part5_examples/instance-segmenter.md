@@ -6,6 +6,11 @@
 #include <assert.h>
 
 void normalize_image2(image p);
+```
+
+## train_isegmenter
+
+```c
 void train_isegmenter(char *datacfg, char *cfgfile, char *weightfile, int *gpus, int ngpus, int clear, int display)
 {
     int i;
@@ -142,7 +147,11 @@ void train_isegmenter(char *datacfg, char *cfgfile, char *weightfile, int *gpus,
     free_list(plist);
     free(base);
 }
+```
 
+## predict_isegmenter
+
+```c
 void predict_isegmenter(char *datafile, char *cfg, char *weights, char *filename)
 {
     network *net = load_network(cfg, weights, 0);
@@ -180,8 +189,11 @@ void predict_isegmenter(char *datafile, char *cfg, char *weights, char *filename
         if (filename) break;
     }
 }
+```
 
+## demo_isegmenter
 
+```c
 void demo_isegmenter(char *datacfg, char *cfg, char *weights, int cam_index, const char *filename)
 {
 #ifdef OPENCV
@@ -223,8 +235,11 @@ void demo_isegmenter(char *datacfg, char *cfg, char *weights, int cam_index, con
     }
 #endif
 }
+```
 
+## run_isegmenter
 
+```c
 void run_isegmenter(int argc, char **argv)
 {
     if(argc < 4){

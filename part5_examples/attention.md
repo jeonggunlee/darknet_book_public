@@ -5,7 +5,11 @@
 
 #include <sys/time.h>
 #include <assert.h>
+```
 
+## extend_data_truth
+
+```c
 void extend_data_truth(data *d, int n, float val)
 {
     int i, j;
@@ -17,7 +21,11 @@ void extend_data_truth(data *d, int n, float val)
     }
     d->y.cols += n;
 }
+```
 
+## network_loss_data
+
+```c
 matrix network_loss_data(network *net, data test)
 {
     int i,b;
@@ -53,7 +61,11 @@ matrix network_loss_data(network *net, data test)
     free(y);
     return pred;   
 }
+```
 
+## train_attention
+
+```c
 void train_attention(char *datacfg, char *cfgfile, char *weightfile, int *gpus, int ngpus, int clear)
 {
     int i, j;
@@ -232,7 +244,11 @@ void train_attention(char *datacfg, char *cfgfile, char *weightfile, int *gpus, 
     free_list(plist);
     free(base);
 }
+```
 
+## validate_attention_single
+
+```c
 void validate_attention_single(char *datacfg, char *filename, char *weightfile)
 {
     int i, j;
@@ -320,7 +336,11 @@ void validate_attention_single(char *datacfg, char *filename, char *weightfile)
         printf("%d: top 1: %f, top %d: %f\n", i, avg_acc/(i+1), topk, avg_topk/(i+1));
     }
 }
+```
 
+## validate_attention_multi
+
+```c
 void validate_attention_multi(char *datacfg, char *filename, char *weightfile)
 {
     int i, j;
@@ -381,7 +401,11 @@ void validate_attention_multi(char *datacfg, char *filename, char *weightfile)
         printf("%d: top 1: %f, top %d: %f\n", i, avg_acc/(i+1), topk, avg_topk/(i+1));
     }
 }
+```
 
+## predict_attention
+
+```c
 void predict_attention(char *datacfg, char *cfgfile, char *weightfile, char *filename, int top)
 {
     network *net = load_network(cfgfile, weightfile, 0);
@@ -432,8 +456,11 @@ void predict_attention(char *datacfg, char *cfgfile, char *weightfile, char *fil
         if (filename) break;
     }
 }
+```
 
+## run_attention
 
+```c
 void run_attention(int argc, char **argv)
 {
     if(argc < 4){

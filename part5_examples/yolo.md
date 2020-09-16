@@ -4,7 +4,11 @@
 #include "darknet.h"
 
 char *voc_names[] = {"aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", "cat", "chair", "cow", "diningtable", "dog", "horse", "motorbike", "person", "pottedplant", "sheep", "sofa", "train", "tvmonitor"};
+```
 
+## train_yolo
+
+```c
 void train_yolo(char *cfgfile, char *weightfile)
 {
     char *train_images = "/data/voc/train.txt";
@@ -76,7 +80,11 @@ void train_yolo(char *cfgfile, char *weightfile)
     sprintf(buff, "%s/%s_final.weights", backup_directory, base);
     save_weights(net, buff);
 }
+```
 
+## print_yolo_detections
+
+```c
 void print_yolo_detections(FILE **fps, char *id, int total, int classes, int w, int h, detection *dets)
 {
     int i, j;
@@ -97,7 +105,11 @@ void print_yolo_detections(FILE **fps, char *id, int total, int classes, int w, 
         }
     }
 }
+```
 
+## validate_yolo
+
+```c
 void validate_yolo(char *cfg, char *weights)
 {
     network *net = load_network(cfg, weights, 0);
@@ -181,7 +193,11 @@ void validate_yolo(char *cfg, char *weights)
     }
     fprintf(stderr, "Total Detection Time: %f Seconds\n", (double)(time(0) - start));
 }
+```
 
+## validate_yolo_recall
+
+```c
 void validate_yolo_recall(char *cfg, char *weights)
 {
     network *net = load_network(cfg, weights, 0);
@@ -264,7 +280,11 @@ void validate_yolo_recall(char *cfg, char *weights)
         free_image(sized);
     }
 }
+```
 
+## test_yolo
+
+```c
 void test_yolo(char *cfgfile, char *weightfile, char *filename, float thresh)
 {
     image **alphabet = load_alphabet();
@@ -306,7 +326,11 @@ void test_yolo(char *cfgfile, char *weightfile, char *filename, float thresh)
         if (filename) break;
     }
 }
+```
 
+## run_yolo
+
+```c
 void run_yolo(int argc, char **argv)
 {
     char *prefix = find_char_arg(argc, argv, "-prefix", 0);

@@ -5,7 +5,11 @@
 
 #include <sys/time.h>
 #include <assert.h>
+```
 
+## get_regression_values
+
+```c
 float *get_regression_values(char **labels, int n)
 {
     float *v = calloc(n, sizeof(float));
@@ -17,7 +21,11 @@ float *get_regression_values(char **labels, int n)
     }
     return v;
 }
+```
 
+## train_classifier
+
+```c
 void train_classifier(char *datacfg, char *cfgfile, char *weightfile, int *gpus, int ngpus, int clear)
 {
     int i;
@@ -169,7 +177,11 @@ void train_classifier(char *datacfg, char *cfgfile, char *weightfile, int *gpus,
     free_list(plist);
     free(base);
 }
+```
 
+## validate_classifier_crop
+
+```c
 void validate_classifier_crop(char *datacfg, char *filename, char *weightfile)
 {
     int i = 0;
@@ -233,7 +245,11 @@ void validate_classifier_crop(char *datacfg, char *filename, char *weightfile)
         free_data(val);
     }
 }
+```
 
+## validate_classifier_10
+
+```c
 void validate_classifier_10(char *datacfg, char *filename, char *weightfile)
 {
     int i, j;
@@ -302,7 +318,11 @@ void validate_classifier_10(char *datacfg, char *filename, char *weightfile)
         printf("%d: top 1: %f, top %d: %f\n", i, avg_acc/(i+1), topk, avg_topk/(i+1));
     }
 }
+```
 
+## validate_classifier_full
+
+```c
 void validate_classifier_full(char *datacfg, char *filename, char *weightfile)
 {
     int i, j;
@@ -359,8 +379,11 @@ void validate_classifier_full(char *datacfg, char *filename, char *weightfile)
         printf("%d: top 1: %f, top %d: %f\n", i, avg_acc/(i+1), topk, avg_topk/(i+1));
     }
 }
+```
 
+## validate_classifier_single
 
+```c
 void validate_classifier_single(char *datacfg, char *filename, char *weightfile)
 {
     int i, j;
@@ -419,7 +442,11 @@ void validate_classifier_single(char *datacfg, char *filename, char *weightfile)
         printf("%d: top 1: %f, top %d: %f\n", i, avg_acc/(i+1), topk, avg_topk/(i+1));
     }
 }
+```
 
+## validate_classifier_multi
+
+```c
 void validate_classifier_multi(char *datacfg, char *cfg, char *weights)
 {
     int i, j;
@@ -481,7 +508,11 @@ void validate_classifier_multi(char *datacfg, char *cfg, char *weights)
         printf("%d: top 1: %f, top %d: %f\n", i, avg_acc/(i+1), topk, avg_topk/(i+1));
     }
 }
+```
 
+## try_classifier
+
+```c
 void try_classifier(char *datacfg, char *cfgfile, char *weightfile, char *filename, int layer_num)
 {
     network *net = load_network(cfgfile, weightfile, 0);
@@ -559,7 +590,11 @@ void try_classifier(char *datacfg, char *cfgfile, char *weightfile, char *filena
         if (filename) break;
     }
 }
+```
 
+## predict_classifier
+
+```c
 void predict_classifier(char *datacfg, char *cfgfile, char *weightfile, char *filename, int top)
 {
     network *net = load_network(cfgfile, weightfile, 0);
@@ -612,8 +647,11 @@ void predict_classifier(char *datacfg, char *cfgfile, char *weightfile, char *fi
         if (filename) break;
     }
 }
+```
 
+## label_classifier
 
+```c
 void label_classifier(char *datacfg, char *filename, char *weightfile)
 {
     int i;
@@ -648,7 +686,11 @@ void label_classifier(char *datacfg, char *filename, char *weightfile)
         printf("%s\n", labels[ind]);
     }
 }
+```
 
+## csv_classifier
+
+```c
 void csv_classifier(char *datacfg, char *cfgfile, char *weightfile)
 {
     int i,j;
@@ -688,7 +730,11 @@ void csv_classifier(char *datacfg, char *cfgfile, char *weightfile)
         fprintf(stderr, "%lf seconds, %d images, %d total\n", what_time_is_it_now() - time, i+1, m);
     }
 }
+```
 
+## test_classifier
+
+```c
 void test_classifier(char *datacfg, char *cfgfile, char *weightfile, int target_layer)
 {
     int curr = 0;
@@ -757,7 +803,11 @@ void test_classifier(char *datacfg, char *cfgfile, char *weightfile, int target_
         free_data(val);
     }
 }
+```
 
+## file_output_classifier
+
+```c
 void file_output_classifier(char *datacfg, char *filename, char *weightfile, char *listfile)
 {
     int i,j;
@@ -795,8 +845,11 @@ void file_output_classifier(char *datacfg, char *filename, char *weightfile, cha
         printf("\n");
     }
 }
+```
 
+## threat_classifier
 
+```c
 void threat_classifier(char *datacfg, char *cfgfile, char *weightfile, int cam_index, const char *filename)
 {
 #ifdef OPENCV
@@ -918,8 +971,11 @@ void threat_classifier(char *datacfg, char *cfgfile, char *weightfile, int cam_i
     }
 #endif
 }
+```
 
+## gun_classifier
 
+```c
 void gun_classifier(char *datacfg, char *cfgfile, char *weightfile, int cam_index, const char *filename)
 {
 #ifdef OPENCV
@@ -985,7 +1041,11 @@ void gun_classifier(char *datacfg, char *cfgfile, char *weightfile, int cam_inde
     }
 #endif
 }
+```
 
+## demo_classifier
+
+```c
 void demo_classifier(char *datacfg, char *cfgfile, char *weightfile, int cam_index, const char *filename)
 {
 #ifdef OPENCV
@@ -1058,8 +1118,11 @@ void demo_classifier(char *datacfg, char *cfgfile, char *weightfile, int cam_ind
     }
 #endif
 }
+```
 
+## run_classifier
 
+```c
 void run_classifier(int argc, char **argv)
 {
     if(argc < 4){

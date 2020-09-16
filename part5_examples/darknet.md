@@ -24,7 +24,11 @@ extern void run_go(int argc, char **argv);
 extern void run_art(int argc, char **argv);
 extern void run_super(int argc, char **argv);
 extern void run_lsd(int argc, char **argv);
+```
 
+## average
+
+```c
 void average(int argc, char *argv[])
 {
     char *cfgfile = argv[2];
@@ -80,7 +84,11 @@ void average(int argc, char *argv[])
     }
     save_weights(sum, outfile);
 }
+```
 
+## numops
+
+```c
 long numops(network *net)
 {
     int i;
@@ -115,7 +123,11 @@ long numops(network *net)
     }
     return ops;
 }
+```
 
+## speed
+
+```c
 void speed(char *cfgfile, int tics)
 {
     if (tics == 0) tics = 1000;
@@ -135,7 +147,11 @@ void speed(char *cfgfile, int tics)
     printf("Speed: %f sec/eval\n", t/tics);
     printf("Speed: %f Hz\n", tics/t);
 }
+```
 
+## operations
+
+```c
 void operations(char *cfgfile)
 {
     gpu_index = -1;
@@ -144,7 +160,11 @@ void operations(char *cfgfile)
     printf("Floating Point Operations: %ld\n", ops);
     printf("Floating Point Operations: %.2f Bn\n", (float)ops/1000000000.);
 }
+```
 
+## oneoff
+
+```c
 void oneoff(char *cfgfile, char *weightfile, char *outfile)
 {
     gpu_index = -1;
@@ -171,7 +191,11 @@ void oneoff(char *cfgfile, char *weightfile, char *outfile)
     *net->seen = 0;
     save_weights(net, outfile);
 }
+```
 
+## oneoff2
+
+```c
 void oneoff2(char *cfgfile, char *weightfile, char *outfile, int l)
 {
     gpu_index = -1;
@@ -183,14 +207,22 @@ void oneoff2(char *cfgfile, char *weightfile, char *outfile, int l)
     *net->seen = 0;
     save_weights_upto(net, outfile, net->n);
 }
+```
 
+## partial
+
+```c
 void partial(char *cfgfile, char *weightfile, char *outfile, int max)
 {
     gpu_index = -1;
     network *net = load_network(cfgfile, weightfile, 1);
     save_weights_upto(net, outfile, max);
 }
+```
 
+## print_weights
+
+```c
 void print_weights(char *cfgfile, char *weightfile, int n)
 {
     gpu_index = -1;
@@ -209,7 +241,11 @@ void print_weights(char *cfgfile, char *weightfile, int n)
     }
     //printf("]");
 }
+```
 
+## rescale_net
+
+```c
 void rescale_net(char *cfgfile, char *weightfile, char *outfile)
 {
     gpu_index = -1;
@@ -224,7 +260,11 @@ void rescale_net(char *cfgfile, char *weightfile, char *outfile)
     }
     save_weights(net, outfile);
 }
+```
 
+## rgbgr_net
+
+```c
 void rgbgr_net(char *cfgfile, char *weightfile, char *outfile)
 {
     gpu_index = -1;
@@ -239,7 +279,11 @@ void rgbgr_net(char *cfgfile, char *weightfile, char *outfile)
     }
     save_weights(net, outfile);
 }
+```
 
+## reset_normalize_net
+
+```c
 void reset_normalize_net(char *cfgfile, char *weightfile, char *outfile)
 {
     gpu_index = -1;
@@ -264,7 +308,11 @@ void reset_normalize_net(char *cfgfile, char *weightfile, char *outfile)
     }
     save_weights(net, outfile);
 }
+```
 
+## normalize_layer
+
+```c
 layer normalize_layer(layer l, int n)
 {
     int j;
@@ -277,7 +325,11 @@ layer normalize_layer(layer l, int n)
     l.rolling_variance = calloc(n, sizeof(float));
     return l;
 }
+```
 
+## normalize_net
+
+```c
 void normalize_net(char *cfgfile, char *weightfile, char *outfile)
 {
     gpu_index = -1;
@@ -303,7 +355,11 @@ void normalize_net(char *cfgfile, char *weightfile, char *outfile)
     }
     save_weights(net, outfile);
 }
+```
 
+## statistics_net
+
+```c
 void statistics_net(char *cfgfile, char *weightfile)
 {
     gpu_index = -1;
@@ -333,7 +389,11 @@ void statistics_net(char *cfgfile, char *weightfile)
         printf("\n");
     }
 }
+```
 
+## denormalize_net
+
+```c
 void denormalize_net(char *cfgfile, char *weightfile, char *outfile)
 {
     gpu_index = -1;
@@ -367,7 +427,11 @@ void denormalize_net(char *cfgfile, char *weightfile, char *outfile)
     }
     save_weights(net, outfile);
 }
+```
 
+## mkimg
+
+```c
 void mkimg(char *cfgfile, char *weightfile, int h, int w, int num, char *prefix)
 {
     network *net = load_network(cfgfile, weightfile, 0);
@@ -393,13 +457,21 @@ void mkimg(char *cfgfile, char *weightfile, int h, int w, int num, char *prefix)
         free_image(im);
     }
 }
+```
 
+## visualize
+
+```c
 void visualize(char *cfgfile, char *weightfile)
 {
     network *net = load_network(cfgfile, weightfile, 0);
     visualize_network(net);
 }
+```
 
+## main
+
+```c
 int main(int argc, char **argv)
 {
     //test_resize("data/bad.jpg");

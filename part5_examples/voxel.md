@@ -2,7 +2,11 @@
 
 ```c
 #include "darknet.h"
+```
 
+## extract_voxel
+
+```c
 void extract_voxel(char *lfile, char *rfile, char *prefix)
 {
 #ifdef OPENCV
@@ -38,7 +42,11 @@ void extract_voxel(char *lfile, char *rfile, char *prefix)
     printf("need OpenCV for extraction\n");
 #endif
 }
+```
 
+## train_voxel
+
+```c
 void train_voxel(char *cfgfile, char *weightfile)
 {
     char *train_images = "/data/imagenet/imagenet1k.train.list";
@@ -105,7 +113,11 @@ void train_voxel(char *cfgfile, char *weightfile)
     sprintf(buff, "%s/%s_final.weights", backup_directory, base);
     save_weights(net, buff);
 }
+```
 
+## test_voxel
+
+```c
 void test_voxel(char *cfgfile, char *weightfile, char *filename)
 {
     network net = parse_network_cfg(cfgfile);
@@ -143,8 +155,11 @@ void test_voxel(char *cfgfile, char *weightfile, char *filename)
         if (filename) break;
     }
 }
+```
 
+## run_voxel
 
+```c
 void run_voxel(int argc, char **argv)
 {
     if(argc < 4){

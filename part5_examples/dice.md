@@ -4,7 +4,11 @@
 #include "darknet.h"
 
 char *dice_labels[] = {"face1","face2","face3","face4","face5","face6"};
+```
 
+## train_dice
+
+```c
 void train_dice(char *cfgfile, char *weightfile)
 {
     srand(time(0));
@@ -44,7 +48,11 @@ void train_dice(char *cfgfile, char *weightfile)
         }
     }
 }
+```
 
+## validate_dice
+
+```c
 void validate_dice(char *filename, char *weightfile)
 {
     network net = parse_network_cfg(filename);
@@ -65,7 +73,11 @@ void validate_dice(char *filename, char *weightfile)
     printf("Validation Accuracy: %f, %d images\n", acc[0], m);
     free_data(val);
 }
+```
 
+## test_dice
+
+```c
 void test_dice(char *cfgfile, char *weightfile, char *filename)
 {
     network net = parse_network_cfg(cfgfile);
@@ -101,7 +113,11 @@ void test_dice(char *cfgfile, char *weightfile, char *filename)
         if (filename) break;
     }
 }
+```
 
+## run_dice
+
+```c
 void run_dice(int argc, char **argv)
 {
     if(argc < 4){

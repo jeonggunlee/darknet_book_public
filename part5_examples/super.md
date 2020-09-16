@@ -2,7 +2,11 @@
 
 ```c
 #include "darknet.h"
+```
 
+## train_super
+
+```c
 void train_super(char *cfgfile, char *weightfile, int clear)
 {
     char *train_images = "/data/imagenet/imagenet1k.train.list";
@@ -66,7 +70,11 @@ void train_super(char *cfgfile, char *weightfile, int clear)
     sprintf(buff, "%s/%s_final.weights", backup_directory, base);
     save_weights(net, buff);
 }
+```
 
+## test_super
+
+```c
 void test_super(char *cfgfile, char *weightfile, char *filename)
 {
     network *net = load_network(cfgfile, weightfile, 0);
@@ -102,8 +110,11 @@ void test_super(char *cfgfile, char *weightfile, char *filename)
         if (filename) break;
     }
 }
+```
 
+## run_super
 
+```c
 void run_super(int argc, char **argv)
 {
     if(argc < 4){

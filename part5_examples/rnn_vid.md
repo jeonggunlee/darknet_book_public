@@ -9,12 +9,15 @@ image ipl_to_image(IplImage* src);
 
 void reconstruct_picture(network net, float *features, image recon, image update, float rate, float momentum, float lambda, int smooth_size, int iters);
 
-
 typedef struct {
     float *x;
     float *y;
 } float_pair;
+```
 
+## get_rnn_vid_data
+
+```c
 float_pair get_rnn_vid_data(network net, char **files, int n, int batch, int steps)
 {
     int b;
@@ -69,8 +72,11 @@ float_pair get_rnn_vid_data(network net, char **files, int n, int batch, int ste
 
     return p;
 }
+```
 
+## train_vid_rnn
 
+```c
 void train_vid_rnn(char *cfgfile, char *weightfile)
 {
     char *train_videos = "data/vid/train.txt";
@@ -127,8 +133,11 @@ void train_vid_rnn(char *cfgfile, char *weightfile)
     sprintf(buff, "%s/%s_final.weights", backup_directory, base);
     save_weights(net, buff);
 }
+```
 
+## save_reconstruction
 
+```c
 image save_reconstruction(network net, image *init, float *feat, char *name, int i)
 {
     image recon;
@@ -146,7 +155,11 @@ image save_reconstruction(network net, image *init, float *feat, char *name, int
     free_image(update);
     return recon;
 }
+```
 
+## generate_vid_rnn
+
+```c
 void generate_vid_rnn(char *cfgfile, char *weightfile)
 {
     network extractor = parse_network_cfg("cfg/extractor.recon.cfg");
@@ -191,7 +204,11 @@ void generate_vid_rnn(char *cfgfile, char *weightfile)
         last = new;
     }
 }
+```
 
+## run_vid_rnn
+
+```c
 void run_vid_rnn(int argc, char **argv)
 {
     if(argc < 4){

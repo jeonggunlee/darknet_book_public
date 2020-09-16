@@ -4,7 +4,11 @@
 #include "darknet.h"
 #include <sys/time.h>
 #include <assert.h>
+```
 
+## train_regressor
+
+```c
 void train_regressor(char *datacfg, char *cfgfile, char *weightfile, int *gpus, int ngpus, int clear)
 {
     int i;
@@ -115,7 +119,11 @@ void train_regressor(char *datacfg, char *cfgfile, char *weightfile, int *gpus, 
     free_list(plist);
     free(base);
 }
+```
 
+## predict_regressor
+
+```c
 void predict_regressor(char *cfgfile, char *weightfile, char *filename)
 {
     network *net = load_network(cfgfile, weightfile, 0);
@@ -148,8 +156,11 @@ void predict_regressor(char *cfgfile, char *weightfile, char *filename)
         if (filename) break;
     }
 }
+```
 
+## demo_regressor
 
+```c
 void demo_regressor(char *datacfg, char *cfgfile, char *weightfile, int cam_index, const char *filename)
 {
 #ifdef OPENCV
@@ -197,8 +208,11 @@ void demo_regressor(char *datacfg, char *cfgfile, char *weightfile, int cam_inde
     }
 #endif
 }
+```
 
+## run_regressor
 
+```c
 void run_regressor(int argc, char **argv)
 {
     if(argc < 4){

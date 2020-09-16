@@ -3,7 +3,11 @@
 ```c
 #include "darknet.h"
 #include <sys/time.h>
+```
 
+## train_swag
+
+```c
 void train_swag(char *cfgfile, char *weightfile)
 {
     char *train_images = "data/voc.0712.trainval";
@@ -72,7 +76,11 @@ void train_swag(char *cfgfile, char *weightfile)
     sprintf(buff, "%s/%s_final.weights", backup_directory, base);
     save_weights(net, buff);
 }
+```
 
+## run_swag
+
+```c
 void run_swag(int argc, char **argv)
 {
     if(argc < 4){

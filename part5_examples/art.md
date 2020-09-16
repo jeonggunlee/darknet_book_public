@@ -4,7 +4,11 @@
 #include "darknet.h"
 
 #include <sys/time.h>
+```
 
+## demo_art
+
+```c
 void demo_art(char *cfgfile, char *weightfile, int cam_index)
 {
 #ifdef OPENCV
@@ -50,8 +54,11 @@ void demo_art(char *cfgfile, char *weightfile, int cam_index)
     }
 #endif
 }
+```
 
+## run_art
 
+```c
 void run_art(int argc, char **argv)
 {
     int cam_index = find_int_arg(argc, argv, "-c", 0);

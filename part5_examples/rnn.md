@@ -2,14 +2,17 @@
 
 ```c
 #include "darknet.h"
-
 #include <math.h>
 
 typedef struct {
     float *x;
     float *y;
 } float_pair;
+```
 
+## load_files
+
+```c
 unsigned char **load_files(char *filename, int *n)
 {
     list *paths = get_paths(filename);
@@ -23,7 +26,11 @@ unsigned char **load_files(char *filename, int *n)
     }
     return contents;
 }
+```
 
+## read_tokenized_data
+
+```c
 int *read_tokenized_data(char *filename, size_t *read)
 {
     size_t size = 512;
@@ -46,7 +53,11 @@ int *read_tokenized_data(char *filename, size_t *read)
     *read = count;
     return d;
 }
+```
 
+## read_tokens
+
+```c
 char **read_tokens(char *filename, size_t *read)
 {
     size_t size = 512;
@@ -68,8 +79,11 @@ char **read_tokens(char *filename, size_t *read)
     *read = count;
     return d;
 }
+```
 
+## get_rnn_token_data
 
+```c
 float_pair get_rnn_token_data(int *tokens, size_t *offsets, int characters, size_t len, int batch, int steps)
 {
     float *x = calloc(batch * steps * characters, sizeof(float));
@@ -95,7 +109,11 @@ float_pair get_rnn_token_data(int *tokens, size_t *offsets, int characters, size
     p.y = y;
     return p;
 }
+```
 
+## get_seq2seq_data
+
+```c
 float_pair get_seq2seq_data(char **source, char **dest, int n, int characters, size_t len, int batch, int steps)
 {
     int i,j;
@@ -126,7 +144,11 @@ float_pair get_seq2seq_data(char **source, char **dest, int n, int characters, s
     p.y = y;
     return p;
 }
+```
 
+## get_rnn_data
+
+```c
 float_pair get_rnn_data(unsigned char *text, size_t *offsets, int characters, size_t len, int batch, int steps)
 {
     float *x = calloc(batch * steps * characters, sizeof(float));
@@ -156,7 +178,11 @@ float_pair get_rnn_data(unsigned char *text, size_t *offsets, int characters, si
     p.y = y;
     return p;
 }
+```
 
+## train_char_rnn
+
+```c
 void train_char_rnn(char *cfgfile, char *weightfile, char *filename, int clear, int tokenized)
 {
     srand(time(0));
@@ -236,7 +262,11 @@ void train_char_rnn(char *cfgfile, char *weightfile, char *filename, int clear, 
     sprintf(buff, "%s/%s_final.weights", backup_directory, base);
     save_weights(net, buff);
 }
+```
 
+## print_symbol
+
+```c
 void print_symbol(int n, char **tokens){
     if(tokens){
         printf("%s ", tokens[n]);
@@ -244,7 +274,11 @@ void print_symbol(int n, char **tokens){
         printf("%c", n);
     }
 }
+```
 
+## test_char_rnn
+
+```c
 void test_char_rnn(char *cfgfile, char *weightfile, int num, char *seed, float temp, int rseed, char *token_file)
 {
     char **tokens = 0;
@@ -298,7 +332,11 @@ void test_char_rnn(char *cfgfile, char *weightfile, int num, char *seed, float t
     }
     printf("\n");
 }
+```
 
+## test_tactic_rnn_multi
+
+```c
 void test_tactic_rnn_multi(char *cfgfile, char *weightfile, int num, float temp, int rseed, char *token_file)
 {
     char **tokens = 0;
@@ -343,7 +381,11 @@ void test_tactic_rnn_multi(char *cfgfile, char *weightfile, int num, float temp,
         printf("\n");
     }
 }
+```
 
+## test_tactic_rnn
+
+```c
 void test_tactic_rnn(char *cfgfile, char *weightfile, int num, float temp, int rseed, char *token_file)
 {
     char **tokens = 0;
@@ -385,7 +427,11 @@ void test_tactic_rnn(char *cfgfile, char *weightfile, int num, float temp, int r
     }
     printf("\n");
 }
+```
 
+## valid_tactic_rnn
+
+```c
 void valid_tactic_rnn(char *cfgfile, char *weightfile, char *seed)
 {
     char *base = basecfg(cfgfile);
@@ -434,7 +480,11 @@ void valid_tactic_rnn(char *cfgfile, char *weightfile, char *seed)
         printf("%d %d Perplexity: %4.4f    Word Perplexity: %4.4f\n", count, words, pow(2, -sum/count), pow(2, -sum/words));
     }
 }
+```
 
+## valid_char_rnn
+
+```c
 void valid_char_rnn(char *cfgfile, char *weightfile, char *seed)
 {
     char *base = basecfg(cfgfile);
@@ -472,7 +522,11 @@ void valid_char_rnn(char *cfgfile, char *weightfile, char *seed)
         printf("%d BPC: %4.4f   Perplexity: %4.4f    Word Perplexity: %4.4f\n", count, -sum/count, pow(2, -sum/count), pow(2, -sum/words));
     }
 }
+```
 
+## vec_char_rnn
+
+```c
 void vec_char_rnn(char *cfgfile, char *weightfile, char *seed)
 {
     char *base = basecfg(cfgfile);
@@ -518,7 +572,11 @@ void vec_char_rnn(char *cfgfile, char *weightfile, char *seed)
         printf("\n");
     }
 }
+```
 
+## run_char_rnn
+
+```c
 void run_char_rnn(int argc, char **argv)
 {
     if(argc < 4){
