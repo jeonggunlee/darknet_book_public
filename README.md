@@ -2,26 +2,9 @@
 
 - 본 문서는 [DarkNet](https://github.com/pjreddie/darknet) 프로젝트 분석 문서입니다.
 
+- `DarkNet` : C 언어로 작성된 Deep Learning Open Source
+
 - `DarkNet Book Public GitHub` : [https://github.com/jjeamin/darknet_book_public](https://github.com/jjeamin/darknet_book_public)
-
-**한번 읽어주세요!!**
-
-## Contribution 하기
-
-1. Issue 등록하기
-3. Branch 나누기
-4. 수정하기
-5. Pull Requests 날리기
-
-확인을 하면서 작업을 진행하시길 원한다면 빌드를 해주세요
-
-```
-gitbook build
-```
-
-### DarkNet
-
-C 언어로 작성된 Deep Learning Open Source
 
 ### 공식 홈페이지
 
@@ -36,6 +19,19 @@ C 언어로 작성된 Deep Learning Open Source
 - [YOLOv2](https://arxiv.org/abs/1612.08242)
 - [YOLOv3](https://arxiv.org/abs/1804.02767)
 - [YOLOv4](https://arxiv.org/abs/2004.10934)
+
+## Contribution 하기
+
+1. Issue 등록하기
+3. Branch 나누기
+4. 수정하기
+5. Pull Requests 날리기
+
+확인을 하면서 작업을 진행하시길 원한다면 빌드를 해주세요
+
+```
+gitbook build
+```
 
 ### :blush: 이 문서를 작성하면서 얻기 원하는 것 :blush:
 
