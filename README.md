@@ -1,14 +1,23 @@
-`DarkNet Book Public GitHub` : [https://github.com/jjeamin/darknet_book_public](https://github.com/jjeamin/darknet_book_public)
+# DarkNet BOOK
+
+- 본 문서는 [DarkNet](https://github.com/pjreddie/darknet) 프로젝트 분석 문서입니다.
+
+- `DarkNet Book Public GitHub` : [https://github.com/jjeamin/darknet_book_public](https://github.com/jjeamin/darknet_book_public)
+
+**한번 읽어주세요!!**
+
+## Contribution 하기
+
+1. Issue 등록하기
+3. Branch 나누기
+4. 수정하기
+5. Pull Requests 날리기
 
 확인을 하면서 작업을 진행하시길 원한다면 빌드를 해주세요
 
 ```
 gitbook build
 ```
-
-# DarkNet BOOK
-
-- 본 문서는 [DarkNet](https://github.com/pjreddie/darknet) 프로젝트 분석 문서입니다.
 
 ### DarkNet
 
@@ -45,8 +54,6 @@ C 언어로 작성된 Deep Learning Open Source
 - 무식하게 코드를 읽었을수도 있지만 딥러닝을 코드로 이해하려고 이렇게 했습니다.
 
 - GPU 코드는 빼고 봅니다.
-
-- DarkNet Book Public GitHub : [https://github.com/jjeamin/darknet_book_public](https://github.com/jjeamin/darknet_book_public)
 
 - 기여 많이 해주세요 ㅠㅠ
 
